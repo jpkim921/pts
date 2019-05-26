@@ -1,0 +1,24 @@
+Therapist
+name: string
+email: string
+phone: integer
+discipline: string
+
+
+rails generate model Therapist name:string email:string phone:integer discipline: string
+rails generate controller Therapists
+
+
+Patient
+name: string
+email: string
+phone: integer
+street: string
+apt: string
+city: string
+state: string
+zipcode: integer
+
+status: (add later)
+
+rails generate model Patient name:string email:string phone:integer street: string apt: string city: string state: string zipcode: integer
