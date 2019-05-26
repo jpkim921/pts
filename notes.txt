@@ -22,3 +22,8 @@ zipcode: integer
 status: (add later)
 
 rails generate model Patient name:string email:string phone:integer street: string apt: string city: string state: string zipcode: integer
+rails generate controller Patients
+
+
+rails generate model TherapistPatients
+rails g migration AddTherapistIDAndPatientIDToTherapistPatients therapist_id:integer patient_id:integer

@@ -1,10 +1,15 @@
 class TherapistsController < ApplicationController
-  before_action :set_therapist, only: [:update, :destroy]
+  before_action :set_therapist, only: [:show, :update, :destroy]
 
 
   def index
     @therapists = Therapist.all
-    render json: @therapists
+    # render json: @therapists
+    render json: @therapists.as_json(include:[:patients])
+  end
+
+  def show
+    render json: @therapist.as_json(include:[:patients])
   end
 
   def create
@@ -13,17 +18,17 @@ class TherapistsController < ApplicationController
   end
 
   def update
-    therapist.update(therapist_param)
+    @therapist.update(therapist_param)
     render json: therapist
   end
 
   def destroy
-    therapist.destroy
+    @therapist.destroy
   end
 
   private
   def set_therapist
-    @therapist = therapist.find(params[:id])
+    @therapist = Therapist.find(params[:id])
   end
 
   def therapist_params

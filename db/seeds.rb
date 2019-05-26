@@ -18,10 +18,78 @@ therapists = [
     name: "Spongebob Spuarepants",
     email: "spongebob@test.com",
     phone: 9876543211,
-    discipline: "Occupational Therapist"
+    discipline: "Physical Therapist"
+  }
+]
+
+patients = [
+  {
+    name: "Karren Fowler",
+    email:"KF@test.com",
+    phone: "1111111111",
+    street: "39 Cloud Street",
+    apt: "49L",
+    city: "New York City",
+    state: "New York",
+    zipcode: 10001
+  },
+  {
+    name: "Sulema Behne",
+    email:"SB@test.com",
+    phone: "2222222222",
+    street: "9 Sunset Blvd.",
+    apt: "3rd Floor",
+    city: "New York City",
+    state: "New York",
+    zipcode: 10002
+  },
+  {
+    name: "Rebeca Faison",
+    email:"RF@test.com",
+    phone: "3333333333",
+    street: "Duval Street",
+    apt: "",
+    city: "New York City",
+    state: "New York",
+    zipcode: 10003
+  },
+  {
+    name: "Milagros Coutu",
+    email:"MC@test.com",
+    phone: "4444444444",
+    street: "Harman St.",
+    apt: "",
+    city: "New York City",
+    state: "New York",
+    zipcode: 10004
+  },
+  {
+    name: "Stephine Ruoff",
+    email:"SR@test.com",
+    phone: "5555555555",
+    street: "Zee St.",
+    apt: "001",
+    city: "New York City",
+    state: "New York",
+    zipcode: 10005
   }
 ]
 
 therapists.each do |therapist|
   Therapist.create(therapist)
 end
+
+patients.each do |patient|
+  Patient.create(patient)
+end
+
+
+
+
+Patient.all[0].therapists.push(Therapist.all[0])
+Patient.all[1].therapists.push(Therapist.all[0])
+Patient.all[2].therapists.push(Therapist.all[0])
+Patient.all[2].therapists.push(Therapist.all[1])
+Patient.all[3].therapists.push(Therapist.all[0])
+Patient.all[3].therapists.push(Therapist.all[1])
+Patient.all[4].therapists.push(Therapist.all[1])
