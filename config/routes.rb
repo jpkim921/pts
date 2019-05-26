@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   # get 'therapist/destroy'
 
   resources :therapists
+  resources :patients
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
