@@ -27,3 +27,5 @@ rails generate controller Patients
 
 rails generate model TherapistPatients
 rails g migration AddTherapistIDAndPatientIDToTherapistPatients therapist_id:integer patient_id:integer
+
+rails g migration AddPasswordDigestToTherapists password_digest:string

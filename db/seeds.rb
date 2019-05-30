@@ -12,13 +12,15 @@ therapists = [
     name: "Pero Kim",
     email: "pero@test.com",
     phone: 1234567890,
-    discipline: "Occupational Therapist"
+    discipline: "Occupational Therapist",
+    password: "test"
   },
   {
     name: "Spongebob Spuarepants",
     email: "spongebob@test.com",
     phone: 9876543211,
-    discipline: "Physical Therapist"
+    discipline: "Physical Therapist",
+    password: "test"
   }
 ]
 
