@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Therapist } from "../components/therapists/Therapist";
+import Therapist from "../components/therapists/Therapist";
 import { Patients } from "../components/patients/Patients";
 
 class TherapistContainer extends Component {

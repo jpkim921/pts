@@ -19,6 +19,9 @@ class Login extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     // still need to complete this part
+    console.log(this.state)
+    // take the data and fetch based on info
+
   }
 
   render() {
