@@ -6,9 +6,13 @@ import Therapists from "./components/therapists/Therapists";
 import Greetings from "./components/Greetings";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import Therapist from "./components/therapists/Therapist"
+import Therapist from "./components/therapists/Therapist";
 import { connect } from "react-redux";
-import { fetchTherapists, fetchTherapist, createTherapist } from "./actions/therapistActions";
+import {
+  fetchTherapists,
+  fetchTherapist,
+  createTherapist
+} from "./actions/therapistActions";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
@@ -17,33 +21,40 @@ class App extends Component {
     // this.props.fetchTherapist();
   }
 
-  findTherapist = (credentials) => {
+  findTherapist = credentials => {
+    const email = credentials.email;
+    const phone = parseInt(credentials.phone);
 
-    const email = credentials.email
-    const phone = parseInt(credentials.phone)
-
-    return this.props.therapists.find( user => user.email === email && user.phone === phone)
-  }
+    return this.props.therapists.find(
+      user => user.email === email && user.phone === phone
+    );
+  };
 
   render() {
     return (
       <Router>
         <Switch>
           <Route exact path="/" component={Greetings} />
-          <Route path="/login" render={props => (
-            <Login {...props} findTherapist={this.findTherapist} fetchTherapist={this.props.fetchTherapist}/>
-          )}
-          />
-          <Route path="/signup" render={props => (
-            <Signup {...props} createTherapist={this.props.createTherapist} />
-          )}
-          />
-          <Route path="/therapists" render={props => (
-              <Therapists {...props} therapists={this.props.therapists} />
+          <Route
+            path="/login"
+            render={props => (
+              <Login
+                {...props}
+                findTherapist={this.findTherapist}
+                fetchTherapist={this.props.fetchTherapist}
+              />
             )}
           />
-          <Route path="/therapist" render={props => (
-              <Therapist {...props} therapist={this.props.therapist} />
+          <Route
+            path="/signup"
+            render={props => (
+              <Signup {...props} createTherapist={this.props.createTherapist} />
+            )}
+          />
+          <Route
+            path="/therapist"
+            render={props => (
+              <TherapistContainer {...props} therapist={this.props.therapist} />
             )}
           />
         </Switch>
@@ -55,17 +66,17 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     therapists: state.therapists.therapists,
-    // therapist: state.therapists.therapist
+    therapist: state.therapist
   };
 };
 
 const mapDispatchToProps = {
   fetchTherapists,
-  fetchTherapist,
+  fetchTherapist
   // createTherapist
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(App);

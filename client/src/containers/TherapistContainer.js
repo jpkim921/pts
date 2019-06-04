@@ -4,11 +4,12 @@ import { Patients } from "../components/patients/Patients";
 
 class TherapistContainer extends Component {
   render() {
+    console.log(this.props)
     return (
       <div>
-        TEST FROM THERAPISTCONTAINER
+        {/*TEST FROM THERAPISTCONTAINER
         <Therapist />
-        <Patients />
+        <Patients /> */}
       </div>
     );
   }

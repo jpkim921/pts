@@ -1,11 +1,13 @@
 import React from "react";
+import { Redirect } from "react-router";
 
 class Login extends React.Component {
   constructor() {
     super();
     this.state = {
       email: "",
-      phone: ""
+      phone: "",
+      toTherapist: false
     };
   }
 
@@ -23,12 +25,17 @@ class Login extends React.Component {
     // const loginCreds = this.state
     this.props.fetchTherapist(therapist.id);
     this.setState({
+      toTherapist: true,
       email: "",
       phone: ""
     });
   };
 
   render() {
+    if (this.state.toTherapist === true) {
+      return <Redirect to="/therapist" />;
+    }
+
     return (
       <div>
         TEST FROM LOGIN PAGE
