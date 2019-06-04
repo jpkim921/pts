@@ -7,7 +7,7 @@ class Signup extends React.Component {
     this.state = {
       name:"",
       email: "",
-      phone:0,
+      phone:"",
       discipline:"",
       password: ""
     };
@@ -26,7 +26,7 @@ class Signup extends React.Component {
     this.setState({
       name:"",
       email: "",
-      phone:0,
+      phone:"",
       discipline:"",
       password: ""
     });
