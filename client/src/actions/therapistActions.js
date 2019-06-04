@@ -16,15 +16,14 @@ export function fetchTherapists() {
   };
 }
 
-export function fetchTherapist() {
+export function fetchTherapist(therapistId) {
 
   return (dispatch) => {
     dispatch({ type: 'LOADING_THERAPIST' });
-    return fetch('/therapist')
-    // return fetch(`/therapist/${}`)
-    return fetch('/therapists')
+    // return fetch('/therapist')
+    return fetch(`/therapists/${therapistId}`)
       .then(response => response.json())
-      .then(responseJson => dispatch({ type: 'FETCH_THERAPIST', payload: responseJson }));
+      .then(therapist => dispatch({ type: 'FETCH_THERAPIST', payload: therapist }));
   };
 }
 

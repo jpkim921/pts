@@ -9,7 +9,7 @@ class TherapistsController < ApplicationController
   end
 
   def show
-    render json: therapist.as_json(include:[:patients])
+    render json: @therapist.as_json(include:[:patients])
   end
 
   def create
@@ -30,11 +30,7 @@ class TherapistsController < ApplicationController
 
   private
   def set_therapist
-    # therapist = Therapist.find(params[:id])
-    therapist = Therapist.find_by(email: params[:email])
-    binding.pry
-    # @user = User.find_by(email: params[:user][:email])
-
+    @therapist = Therapist.find(params[:id])
   end
 
   def therapist_params

@@ -26,13 +26,12 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.therapists)
     return (
       <Router>
         <Switch>
           <Route exact path="/" component={Greetings} />
           <Route path="/login" render={props => (
-            <Login {...props} findTherapist={this.findTherapist} />
+            <Login {...props} findTherapist={this.findTherapist} fetchTherapist={this.props.fetchTherapist}/>
           )}
           />
           <Route path="/signup" render={props => (
