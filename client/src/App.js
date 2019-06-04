@@ -72,8 +72,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   fetchTherapists,
-  fetchTherapist
-  // createTherapist
+  fetchTherapist,
+  createTherapist
 };
 
 export default connect(
