@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import Therapist from "../components/therapists/Therapist";
-import { Patients } from "../components/patients/Patients";
 
 class TherapistContainer extends Component {
   render() {
-    console.log(this.props)
+    // console.log("name: ", this.props.therapist.name)
     return (
       <div>
-        {/*TEST FROM THERAPISTCONTAINER
-        <Therapist />
-        <Patients /> */}
+      TEST
+      <Therapist therapist={this.props.therapist}/>
+        {/*
+          <PatientContainer /> */}
       </div>
     );
   }

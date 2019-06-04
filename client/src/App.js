@@ -66,7 +66,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     therapists: state.therapists.therapists,
-    therapist: state.therapist
+    therapist: state.therapists.therapist
   };
 };
 
