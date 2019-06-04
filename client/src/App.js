@@ -17,13 +17,25 @@ class App extends Component {
     // this.props.fetchTherapist();
   }
 
+  findTherapist = (credentials) => {
+
+    const email = credentials.email
+    const phone = parseInt(credentials.phone)
+
+    return this.props.therapists.find( user => user.email === email && user.phone === phone)
+  }
+
   render() {
+    console.log(this.props.therapists)
     return (
       <Router>
         <Switch>
           <Route exact path="/" component={Greetings} />
-          <Route path="/login" component={Login} />
-          <Route exact path="/signup" render={props => (
+          <Route path="/login" render={props => (
+            <Login {...props} findTherapist={this.findTherapist} />
+          )}
+          />
+          <Route path="/signup" render={props => (
             <Signup {...props} createTherapist={this.props.createTherapist} />
           )}
           />
@@ -56,5 +68,5 @@ const mapDispatchToProps = {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(App);

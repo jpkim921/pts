@@ -1,12 +1,12 @@
 import React from "react";
 
 class Login extends React.Component {
-  constructor() {
-    super();
-
+  constructor(props) {
+    super(props);
+    console.log(this.props)
     this.state = {
       email: "",
-      password: ""
+      phone: ""
     };
   }
 
@@ -19,10 +19,13 @@ class Login extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     // still need to complete this part
-    console.log(this.state)
     // take the data and fetch based on info
+    const therapist = this.props.findTherapist(this.state)
+    // const loginCreds = this.state
+    console.log("loginCreds - therapist ID: ", therapist.id)
 
   }
+
 
   render() {
     return (
@@ -31,7 +34,7 @@ class Login extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <input placeholder="Enter Email" name="email" type="text" onChange={this.handleChange} />
           <br />
-          <input placeholder="Enter Password" name="password" type="text" onChange={this.handleChange} />
+          <input placeholder="Enter Phone Number" name="phone" type="text" onChange={this.handleChange} />
           <br />
           <input type="submit" />
         </form>
