@@ -32,33 +32,35 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Greetings} />
-          <Route
-            path="/login"
-            render={props => (
-              <Login
-                {...props}
-                findTherapist={this.findTherapist}
-                fetchTherapist={this.props.fetchTherapist}
-              />
-            )}
-          />
-          <Route
-            path="/signup"
-            render={props => (
-              <Signup {...props} createTherapist={this.props.createTherapist} />
-            )}
-          />
-          <Route
-            path="/therapist"
-            render={props => (
-              <TherapistContainer {...props} therapist={this.props.therapist} />
-            )}
-          />
-        </Switch>
-      </Router>
+      <div className="container">
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Greetings} />
+            <Route
+              path="/login"
+              render={props => (
+                <Login
+                  {...props}
+                  findTherapist={this.findTherapist}
+                  fetchTherapist={this.props.fetchTherapist}
+                />
+              )}
+            />
+            <Route
+              path="/signup"
+              render={props => (
+                <Signup {...props} createTherapist={this.props.createTherapist} />
+              )}
+            />
+            <Route
+              path="/therapist"
+              render={props => (
+                <TherapistContainer {...props} therapist={this.props.therapist} />
+              )}
+            />
+          </Switch>
+        </Router>
+      </div>
     );
   }
 }
