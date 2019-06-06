@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   # get 'therapist/destroy'
 
   # namespace :api do
-    resources :therapists, :patients
+    # resources :therapists, :patients
+    resources :therapists do
+      resources :patients, only: [:index, :new, :show, :edit]
+    end
+
+    resources :patients
+
 
   # end
   # resources :patients
