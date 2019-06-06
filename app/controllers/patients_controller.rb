@@ -3,9 +3,31 @@ class PatientsController < ApplicationController
 
 
   def index
-    @patients = Patient.all
-    render json: @patients.as_json(include:[:therapists])
+    # Parameters: {"therapist_id"=>"1"}
+    filtered_patients = []
+
+    if params[:therapist_id]
+      filtered_patients = []
+
+      Patient.all.each do |patient|
+        if patient.therapists.any? { |therapist| therapist.id.to_s === params[:therapist_id] }
+          filtered_patients << patient
+        end
+      end
+      # @patients = filtered_patients
+      render json: filtered_patients.as_json(include:[:therapists])
+    else
+      patients = Patient.all
+      render json: patients.as_json(include:[:therapists])
+    end
+
+    # @patients = Patient.all
+    # render json: @patients.as_json(include:[:therapists])
   end
+  # def index
+  #   @patients = Patient.all
+  #   render json: @patients.as_json(include:[:therapists])
+  # end
 
   def show
     render json: @patient.as_json(include:[:therapists])
