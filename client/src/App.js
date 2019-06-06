@@ -13,12 +13,12 @@ import {
   fetchTherapist,
   createTherapist
 } from "./actions/therapistActions";
+import { fetchPatients } from "./actions/patientActions";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
   componentDidMount() {
     this.props.fetchTherapists();
-    // this.props.fetchTherapist();
   }
 
   findTherapist = credentials => {
@@ -49,13 +49,20 @@ class App extends Component {
             <Route
               path="/signup"
               render={props => (
-                <Signup {...props} createTherapist={this.props.createTherapist} />
+                <Signup
+                  {...props}
+                  createTherapist={this.props.createTherapist}
+                />
               )}
             />
             <Route
               path="/therapist"
               render={props => (
-                <TherapistContainer {...props} therapist={this.props.therapist} />
+                <TherapistContainer
+                  {...props}
+                  therapist={this.props.therapist}
+                  fetchPatients={this.props.fetchPatients}
+                />
               )}
             />
           </Switch>
@@ -75,7 +82,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   fetchTherapists,
   fetchTherapist,
-  createTherapist
+  createTherapist,
+  fetchPatients
 };
 
 export default connect(
