@@ -6,7 +6,7 @@ export default class Patients extends React.Component {
 
   renderPatients = () => {
     return this.props.patients.map(patient => {
-      return <h4>{patient.name}</h4>;
+      return <Patient patient={patient}/>;
     });
   };
 
