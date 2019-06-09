@@ -55,16 +55,7 @@ class App extends Component {
                 />
               )}
             />
-            <Route
-              path="/therapist"
-              render={props => (
-                <TherapistContainer
-                  {...props}
-                  therapist={this.props.therapist}
-                  fetchPatients={this.props.fetchPatients}
-                />
-              )}
-            />
+            <Route path="/therapist" component={TherapistContainer} />
           </Switch>
         </Router>
       </div>
@@ -74,8 +65,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    therapists: state.therapists.therapists,
-    therapist: state.therapists.therapist
+    therapists: state.therapists.therapists
+    // therapist: state.therapists.therapist
   };
 };
 
