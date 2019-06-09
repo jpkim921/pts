@@ -4,7 +4,7 @@ import patientsReducer from './patientsReducer'
 
 const rootReducer = combineReducers({
   therapists:therapistsReducer,
-  patients:patientsReducer
+  // patients:patientsReducer
 });
 
 export default rootReducer
