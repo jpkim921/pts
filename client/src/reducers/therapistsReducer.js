@@ -1,6 +1,6 @@
 
 export default function therapistsReducer(
-  state = { loading: false, therapists: [], therapist:[] },
+  state = { loading: false, therapists: [], therapist:[], patients:[] },
   action
 ) {
   switch (action.type) {
@@ -15,7 +15,7 @@ export default function therapistsReducer(
       return Object.assign({}, state, { loading: true });
     case "FETCH_THERAPIST":
       console.log("from reducer ", action)
-      return Object.assign({}, state, { loading: false }, {therapist: action.payload});
+      return Object.assign({}, state, { loading: false }, {therapist: action.payload}, {patients:action.payload.patients});
     case "CREATING_THERAPIST":
       return Object.assign({}, state, { loading: true });
     case "ADD_THERAPIST":
