@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import "./App.css";
 
 import TherapistContainer from "./containers/TherapistContainer";
-import Therapists from "./components/therapists/Therapists";
+// import Therapists from "./components/therapists/Therapists";
 import Greetings from "./components/Greetings";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import Therapist from "./components/therapists/Therapist";
+// import Therapist from "./components/therapists/Therapist";
 import { connect } from "react-redux";
 import {
   fetchTherapists,

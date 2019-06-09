@@ -2,20 +2,28 @@ import React from "react";
 import { Patients } from "../components/patients/Patients";
 // import Patients from "../components/patients/Patients";
 import { Patient } from "../components/patients/Patient";
+import { connect } from "react-redux";
+
 
 class PatientsContainer extends React.Component {
-  componentDidMount() {
-    this.props.fetchPatients();
-  }
+  // componentDidMount() {
+  //   this.props.fetchPatients();
+  // }
 
   render() {
-    console.log("from patients: ", this.props.patients)
+    console.log("from PatientsContainer: ", this.props.patients)
     return (
       <div>
-        <Patients patients={this.props.therapist.patients} />
+        <Patients patients={this.props.patients} />
       </div>
     );
   }
 }
 
-export default PatientsContainer;
+const mapStateToProps = state => {
+  return{
+    patients:state.therapists.therapist.patients
+  }
+}
+
+export default connect(mapStateToProps)(PatientsContainer);
