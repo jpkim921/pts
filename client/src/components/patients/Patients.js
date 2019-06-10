@@ -65,8 +65,8 @@ export default class Patients extends React.Component {
   renderPatients = () => {
     return this.state.patients.map(patient => {
       return (
-        <li className="list-group-item">
-          <Patient key={patient.name} patient={patient} />
+        <li key={patient.name} className="list-group-item">
+          <Patient patient={patient} />
         </li>
       );
     });
@@ -74,7 +74,7 @@ export default class Patients extends React.Component {
   render() {
     return (
       <div>
-        <h4>Hello</h4>
+        <h4>Patients List</h4>
         <ul className="list-group">{this.renderPatients()}</ul>
       </div>
     );
