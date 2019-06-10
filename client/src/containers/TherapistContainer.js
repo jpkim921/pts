@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 class TherapistContainer extends Component {
   render() {
     return (
-      <div>
+      <div className="container">
         <Therapist therapist={this.props.therapist} />
         <PatientsContainer fetchPatients={this.props.fetchPatients} />
       </div>
