@@ -1,15 +1,21 @@
 import React from "react";
 
 export default function Therapist(props) {
-  // console.log(props.therapist)
   return (
-    <div style={{ border: "1px solid" }}>
-      <h3>{props.therapist.name}</h3>
-      <h3>{props.therapist.email}</h3>
-      <h3>{props.therapist.phone}</h3>
-      <h3>{props.therapist.discipline}</h3>
-      {/*
-       */}
+    <div>
+      <div className="card">
+        <div className="card-header">Profile Page</div>
+        <div className="card-body">
+          <h5 className="card-title">{props.therapist.name}</h5>
+          <p className="card-text">
+            With supporting text below as a natural lead-in to additional
+            content.
+          </p>
+          <a href="#" className="btn btn-primary">
+            Go somewhere
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

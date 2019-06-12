@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import Therapist from "../components/therapists/Therapist";
+// import Therapist from "../components/therapists/Therapist";
 import PatientsContainer from "./PatientsContainer";
 import { Navbar } from "../components/Navbar";
 import { connect } from "react-redux";
+
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class TherapistContainer extends Component {
   render() {

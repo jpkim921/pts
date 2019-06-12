@@ -6,7 +6,7 @@ import TherapistContainer from "./containers/TherapistContainer";
 import Greetings from "./components/Greetings";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-// import Therapist from "./components/therapists/Therapist";
+import Therapist from "./components/therapists/Therapist";
 import { connect } from "react-redux";
 import {
   fetchTherapists,
@@ -56,6 +56,12 @@ class App extends Component {
               )}
             />
             <Route path="/therapist" component={TherapistContainer} />
+            <Route
+              path="/profile"
+              render={props => (
+                <Therapist {...props} therapist={this.props.therapist} />
+              )}
+            />
           </Switch>
         </Router>
       </div>
@@ -65,8 +71,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    therapists: state.therapists.therapists
-    // therapist: state.therapists.therapist
+    therapists: state.therapists.therapists,
+    therapist: state.therapists.therapist
   };
 };
 
