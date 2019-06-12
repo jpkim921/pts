@@ -35,29 +35,43 @@ class Login extends React.Component {
     }
 
     return (
-      <div>
-        TEST FROM LOGIN PAGE
-        <form onSubmit={this.handleSubmit}>
-          <input
-            placeholder="Enter Email"
-            name="email"
-            type="text"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <br />
-          <input
-            placeholder="Enter Phone Number"
-            name="phone"
-            type="text"
-            value={this.state.phone}
-            onChange={this.handleChange}
-          />
-          <br />
-          <input type="submit" />
-        </form>
-        {this.state.email}
-        {this.state.password}
+      <div className="container">
+        <div className="row mt-5">
+          <div className="col" />
+          <div className="col-4">
+            <form
+              className="text-center form-signin"
+              onSubmit={this.handleSubmit}
+            >
+              <img
+                className="mb-4"
+                src="https://image.flaticon.com/icons/svg/478/478533.svg"
+                alt=""
+                width="72"
+                height="72"
+              />
+              <h1 className="h3 mb-3 font-weight-normal">Please Log In</h1>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Email address"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
+              <input
+                type="text"
+                name="phone"
+                className="form-control"
+                placeholder="Phone Number"
+                value={this.state.phone}
+                onChange={this.handleChange}
+              />
+              <input className="btn-primary" type="submit" />
+            </form>
+          </div>
+          <div className="col" />
+        </div>
       </div>
     );
   }
