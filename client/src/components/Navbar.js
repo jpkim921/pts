@@ -15,7 +15,7 @@ export const Navbar = props => {
           </Link>
         )}
         <Link to="/newpatient" className="text-white">
-          <buton>Add Patient</buton>
+          Add Patient
         </Link>
       </nav>
     </div>
