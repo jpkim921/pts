@@ -5,8 +5,8 @@ class Login extends React.Component {
   constructor() {
     super();
     this.state = {
-      email: "",
-      phone: "",
+      email: "pero@test.com",
+      phone: "1234567890",
       toTherapist: false
     };
   }

@@ -7,6 +7,7 @@ import Greetings from "./components/Greetings";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Therapist from "./components/therapists/Therapist";
+import NewPatient from "./components/patients/NewPatient";
 import { connect } from "react-redux";
 import {
   fetchTherapists,
@@ -62,6 +63,7 @@ class App extends Component {
                 <Therapist {...props} therapist={this.props.therapist} />
               )}
             />
+            <Route path="/newpatient" component={NewPatient} />
           </Switch>
         </Router>
       </div>

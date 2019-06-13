@@ -62,6 +62,9 @@ export default class Patients extends React.Component {
   //     return <Patient key={patient.id} patient={patient}/>;
   //   });
   // };
+
+  // change it back to the above after finishing and delete the below renderPatients. also delete state.patients
+
   renderPatients = () => {
     return this.state.patients.map(patient => {
       return (
