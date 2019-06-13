@@ -44,3 +44,7 @@ rails g migration AddPasswordDigestToTherapists password_digest:string
     />
   )}
 />*/}
+
+=================================================
+
+TEST
