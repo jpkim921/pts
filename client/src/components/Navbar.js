@@ -14,7 +14,7 @@ export const Navbar = props => {
             Login
           </Link>
         )}
-        <Link to="/newpatient" className="text-white">
+        <Link to={`/${props.therapist.id}/newpatient`} className="text-white">
           Add Patient
         </Link>
       </nav>

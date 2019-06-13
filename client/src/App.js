@@ -63,7 +63,7 @@ class App extends Component {
                 <Therapist {...props} therapist={this.props.therapist} />
               )}
             />
-            <Route path="/newpatient" component={NewPatient} />
+            <Route path="/:therapist_id/newpatient" component={NewPatient} />
           </Switch>
         </Router>
       </div>
