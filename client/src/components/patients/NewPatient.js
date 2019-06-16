@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 
 export default class AddPatient extends React.Component {
   state = {
@@ -10,7 +11,8 @@ export default class AddPatient extends React.Component {
     apt: "apt-placeholder",
     city: "NYC-placeholder",
     state: "NY-placeholder",
-    zipcode: "10019-placeholder"
+    zipcode: "10019-placeholder",
+    toTherapist: false
   };
 
   handleChange = event => {
@@ -22,7 +24,7 @@ export default class AddPatient extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log("New Patient Info: ", this.state);
-    this.props.createPatient(this.state)
+    this.props.createPatient(this.state);
     this.setState({
       name: "",
       email: "",
@@ -31,10 +33,14 @@ export default class AddPatient extends React.Component {
       apt: "",
       city: "",
       state: "",
-      zipcode: ""
+      zipcode: "",
+      toTherapist: true
     });
   };
   render() {
+    if (this.state.toTherapist === true) {
+      return <Redirect to="/therapist" />;
+    }
     return (
       <div>
         <h4>New Patient</h4>
