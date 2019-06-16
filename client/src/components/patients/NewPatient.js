@@ -2,10 +2,11 @@ import React from "react";
 
 export default class AddPatient extends React.Component {
   state = {
+    therapist_id: this.props.match.params.therapist_id,
     name: "name-placeholder",
     email: "email-placeholder",
     phone: "456-placeholder",
-    steet: "street-placeholder",
+    street: "street-placeholder",
     apt: "apt-placeholder",
     city: "NYC-placeholder",
     state: "NY-placeholder",
@@ -20,12 +21,13 @@ export default class AddPatient extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log("New Patient: ", this.state);
+    console.log("New Patient Info: ", this.state);
+    this.props.createPatient(this.state)
     this.setState({
       name: "",
       email: "",
       phone: "",
-      steet: "",
+      street: "",
       apt: "",
       city: "",
       state: "",
@@ -33,7 +35,6 @@ export default class AddPatient extends React.Component {
     });
   };
   render() {
-    console.log("New Patient Props: ", this.props);
     return (
       <div>
         <h4>New Patient</h4>

@@ -33,9 +33,31 @@ class PatientsController < ApplicationController
     render json: @patient.as_json(include:[:therapists])
   end
 
+
+  # def new
+  #   @parent = Parent.find(session[:parent_id])
+  #   @child = Child.new(parent_id: params[:parent_id])
+  # end
+
+  # def create
+  #   # @therapist = Therapist.find(patient_params[:therapist_id])
+  #   # @patient = @therapist.patients.build(patient_params)
+  #
+  #   @patient = patient.create(patient_params)
+  #   render json: patient
+  # end
+
   def create
-    @patient = patient.create(patient_params)
-    render json: patient
+    # binding.pry
+    @therapist = Therapist.find(patient_params[:therapist_id])
+    newpatientParams = patient_params.reject {|k,v| k == "therapist_id"}
+    @patient = Patient.new(newpatientParams)
+    @patient.therapists << @therapist
+
+    # @patient = @therapist.patients.build(newpatientParams)
+
+    @patient.save
+    render json: @patient
   end
 
   def update
@@ -53,6 +75,6 @@ class PatientsController < ApplicationController
   end
 
   def patient_params
-    params.require(:patient).permit(:name, :email, :phone, :street, :apt, :city, :state, :zipcode)
+    params.require(:patient).permit(:name, :email, :phone, :street, :apt, :city, :state, :zipcode, :therapist_id)
   end
 end

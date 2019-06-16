@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # namespace :api do
     # resources :therapists, :patients
     resources :therapists do
-      resources :patients, only: [:index, :new, :show, :edit]
+      resources :patients, only: [:index, :new, :create, :show, :edit]
     end
 
     resources :patients

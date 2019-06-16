@@ -6,3 +6,19 @@ export function fetchPatients() {
       .then(patients => dispatch({ type: 'FETCH_PATIENTS', payload: patients }));
   };
 }
+
+
+export function createPatient(patient) {
+  return (dispatch) => {
+    return fetch('/patients', {
+      method: 'POST',
+      body: JSON.stringify({patient}),
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    }).then(response => response.json())
+    .then(patient => dispatch ({ type: "UPDATE_THERAPIST_PATIENTS", payload: patient}))
+    .then(patient => console.log('Success:', patient))
+    .catch(error => console.error('Error:', error));
+  };
+}
