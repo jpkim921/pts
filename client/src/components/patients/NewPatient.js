@@ -33,6 +33,7 @@ export default class AddPatient extends React.Component {
     });
   };
   render() {
+    console.log("New Patient Props: ", this.props);
     return (
       <div>
         <h4>New Patient</h4>
