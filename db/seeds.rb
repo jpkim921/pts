@@ -16,7 +16,7 @@ therapists = [
     password: "test"
   },
   {
-    name: "Spongebob Spuarepants",
+    name: "Spongebob Squarepants",
     email: "spongebob@test.com",
     phone: 9876543211,
     discipline: "Physical Therapist",
