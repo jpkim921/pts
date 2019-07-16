@@ -1,4 +1,5 @@
 import React from "react";
+import {Redirect} from 'react-router-dom'
 
 class Signup extends React.Component {
   constructor() {
@@ -9,7 +10,8 @@ class Signup extends React.Component {
       email: "",
       phone: "",
       discipline: "",
-      password: ""
+      password: "",
+      toTherapist: false
     };
   }
 
@@ -28,11 +30,15 @@ class Signup extends React.Component {
       email: "",
       phone: "",
       discipline: "",
-      password: ""
-    });
+      password: "",
+      toTherapist: true
+    })
   };
 
   render() {
+    if (this.state.toTherapist === true) {
+      return <Redirect to="/login" />;
+    }
     return (
       <div className="container">
         <div className="row">
