@@ -22,15 +22,6 @@ class App extends Component {
     this.props.fetchTherapists();
   }
 
-  findTherapist = credentials => {
-    const email = credentials.email;
-    const phone = parseInt(credentials.phone);
-
-    return this.props.therapists.find(
-      user => user.email === email && user.phone === phone
-    );
-  };
-
   render() {
     return (
       <div className="container">
@@ -42,7 +33,6 @@ class App extends Component {
               render={props => (
                 <Login
                   {...props}
-                  findTherapist={this.findTherapist}
                   fetchTherapist={this.props.fetchTherapist}
                 />
               )}

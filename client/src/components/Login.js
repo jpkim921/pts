@@ -20,8 +20,10 @@ class Login extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     // take the data and fetch based on info
-    const therapist = this.props.findTherapist(this.state);
-    this.props.fetchTherapist(therapist.id);
+    const therapist = this.state
+    console.log(therapist)
+
+    this.props.fetchTherapist(therapist);
     this.setState({
       toTherapist: true,
       email: "",

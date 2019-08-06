@@ -16,15 +16,25 @@ export function fetchTherapists() {
   };
 }
 
-export function fetchTherapist(therapistId) {
+export function fetchTherapist(therapist) {
 
   return (dispatch) => {
     dispatch({ type: 'LOADING_THERAPIST' });
-    // return fetch('/therapist')
-    return fetch(`/therapists/${therapistId}`)
+
+    // fetchTherapist uses POST action to send the data from Login form
+    return fetch('/therapist', {
+    // return fetch('/therapists', {
+      method: 'POST',
+      body: JSON.stringify(therapist),
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    })
       .then(response => response.json())
-      .then(therapist => dispatch({ type: 'FETCH_THERAPIST', payload: therapist }));
+      .then(therapist => console.log(therapist))
+      // .then(therapist => dispatch({ type: 'FETCH_THERAPIST', payload: therapist }));
   };
+
 }
 
 export function createTherapist(therapist) {

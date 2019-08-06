@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   # get 'therapist/update'
   # get 'therapist/destroy'
 
-  # namespace :api do
-    # resources :therapists, :patients
+  # route below is to send the form data as params from login form 
+    post 'therapist', to: 'therapists#index'
+
     resources :therapists do
+      # resources :therapists, path: "therapists/:email(/:phone)" only: [:index]
       resources :patients, only: [:index, :new, :create, :show, :edit]
     end
 

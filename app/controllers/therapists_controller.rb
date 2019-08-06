@@ -5,6 +5,9 @@ class TherapistsController < ApplicationController
   def index
     therapists = Therapist.all
     # render json: @therapists
+    binding.pry
+    # params['email']
+    # params['phone']
     render json: therapists.as_json(include:[:patients])
   end
 
