@@ -40,7 +40,7 @@ class Signup extends React.Component {
       return <Redirect to="/login" />;
     }
     return (
-      <div className="container">
+      <div className="container container-background">
         <div className="row">
           <div className="col" />
           <div className="col-6">

@@ -31,3 +31,8 @@
     transform: rotate(360deg);
   }
 }
+
+.container-background {
+  background-image: url("https://images.pexels.com/photos/905874/pexels-photo-905874.jpeg");
+  background-size: cover;
+}

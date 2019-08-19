@@ -1,17 +1,20 @@
 class TherapistsController < ApplicationController
-  before_action :set_therapist, only: [:show, :update, :destroy]
+  # before_action :set_therapist, only: [:show, :update, :destroy]
+  before_action :set_therapist, only: [ :update, :destroy]
 
 
   def index
     therapists = Therapist.all
     # render json: @therapists
-    binding.pry
+    # binding.pry
     # params['email']
     # params['phone']
+    # Therapist.where(email: params["email"], phone: params["phone"].to_i)
     render json: therapists.as_json(include:[:patients])
   end
 
   def show
+    binding.pry
     render json: @therapist.as_json(include:[:patients])
   end
 
@@ -32,8 +35,11 @@ class TherapistsController < ApplicationController
   end
 
   private
+  # def set_therapist
+  #   @therapist = Therapist.find(params[:id])
+  # end
   def set_therapist
-    @therapist = Therapist.find(params[:id])
+    therapist = Therapist.where(email: params['email'], password: params['password'])
   end
 
   def therapist_params

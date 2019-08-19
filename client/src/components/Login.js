@@ -6,7 +6,8 @@ class Login extends React.Component {
     super();
     this.state = {
       email: "pero@test.com",
-      phone: "1234567890",
+      // phone: "1234567890",
+      password: "test",
       toTherapist: false
     };
   }
@@ -27,7 +28,8 @@ class Login extends React.Component {
     this.setState({
       toTherapist: true,
       email: "",
-      phone: ""
+      // phone: "",
+      password: ""
     });
   };
 
@@ -63,10 +65,10 @@ class Login extends React.Component {
               />
               <input
                 type="text"
-                name="phone"
+                name="password"
                 className="form-control"
-                placeholder="Phone Number"
-                value={this.state.phone}
+                placeholder="Password"
+                value={this.state.password}
                 onChange={this.handleChange}
               />
               <input className="btn-primary" type="submit" />
