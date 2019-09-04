@@ -31,8 +31,8 @@ export function fetchTherapist(therapist) {
       }
     })
       .then(response => response.json())
-      .then(therapist => console.log(therapist))
-      // .then(therapist => dispatch({ type: 'FETCH_THERAPIST', payload: therapist }));
+      // .then(therapist => console.log(therapist))
+      .then(therapist => dispatch({ type: 'FETCH_THERAPIST', payload: therapist }));
   };
 
 }
