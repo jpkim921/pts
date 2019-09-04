@@ -14,8 +14,10 @@ class TherapistsController < ApplicationController
   end
 
   def show
-    binding.pry
-    render json: @therapist.as_json(include:[:patients])
+    temp = Therapist.find_by email: params['email']
+    therapist = temp.authenticate(params['password'])
+    # binding.pry
+    render json: therapist.as_json(include:[:patients])
   end
 
   def create
@@ -35,12 +37,12 @@ class TherapistsController < ApplicationController
   end
 
   private
-  # def set_therapist
-  #   @therapist = Therapist.find(params[:id])
-  # end
   def set_therapist
-    therapist = Therapist.where(email: params['email'], password: params['password'])
+    therapist = Therapist.find(params[:id])
   end
+  # def set_therapist
+  #   therapist = Therapist.where(email: params['email'], password: params['password'])
+  # end
 
   def therapist_params
     params.require(:therapist).permit(:name, :email, :phone, :discipline, :password)
