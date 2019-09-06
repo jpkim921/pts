@@ -39,6 +39,8 @@ export function fetchTherapist(therapist) {
 
 export function createTherapist(therapist) {
   return (dispatch) => {
+    dispatch({type: 'CREATING_THERAPIST'});
+    
     return fetch('/therapists', {
     // return fetch('/therapists', {
       method: 'POST',
