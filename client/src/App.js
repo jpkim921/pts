@@ -18,9 +18,9 @@ import { fetchPatients, createPatient } from "./actions/patientActions";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchTherapists();
-  }
+  // componentDidMount() {
+  //   this.props.fetchTherapists();
+  // }
 
   render() {
     return (
@@ -78,7 +78,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  fetchTherapists,
+  // fetchTherapists,
   fetchTherapist,
   createTherapist,
   fetchPatients,

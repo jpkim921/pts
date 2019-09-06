@@ -1,6 +1,7 @@
 
 export default function therapistsReducer(
-  state = { loading: false, therapists: [], therapist:[], patients:[] },
+  // state = { loading: false, therapists: [], therapist:[], patients:[] },
+  state = { loading: false, therapist:[], patients:[] },
   action
 ) {
   switch (action.type) {
