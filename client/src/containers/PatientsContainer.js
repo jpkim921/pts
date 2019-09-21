@@ -1,6 +1,5 @@
 import React from "react";
 import Patients from "../components/patients/Patients";
-import { Patient } from "../components/patients/Patient";
 import { connect } from "react-redux";
 
 

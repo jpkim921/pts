@@ -10,17 +10,12 @@ import Therapist from "./components/therapists/Therapist";
 import NewPatient from "./components/patients/NewPatient";
 import { connect } from "react-redux";
 import {
-  fetchTherapists,
-  fetchTherapist,
   createTherapist
 } from "./actions/therapistActions";
 import { fetchPatients, createPatient } from "./actions/patientActions";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 class App extends Component {
-  // componentDidMount() {
-  //   this.props.fetchTherapists();
-  // }
 
   render() {
     return (
@@ -28,15 +23,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Greetings} />
-            <Route
-              path="/login"
-              render={props => (
-                <Login
-                  {...props}
-                  fetchTherapist={this.props.fetchTherapist}
-                />
-              )}
-            />
+            <Route path="/login" component={Login} />
             <Route
               path="/signup"
               render={props => (
@@ -47,22 +34,19 @@ class App extends Component {
               )}
             />
             <Route path="/therapist" component={TherapistContainer} />
+            {/*<Route path="/profile" component={Therapist} />*/}
             <Route
               path="/profile"
               render={props => (
                 <Therapist {...props} therapist={this.props.therapist} />
               )}
             />
-            {/*<Route path="/:therapist_id/newpatient" component={NewPatient} />*/}
-
             <Route
               path="/:therapist_id/newpatient"
               render={props => (
                 <NewPatient {...props} createPatient={this.props.createPatient} />
               )}
             />
-
-
           </Switch>
         </Router>
       </div>
@@ -72,14 +56,11 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    therapists: state.therapists.therapists,
     therapist: state.therapists.therapist
   };
 };
 
 const mapDispatchToProps = {
-  // fetchTherapists,
-  fetchTherapist,
   createTherapist,
   fetchPatients,
   createPatient

@@ -1,5 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router";
+import { connect } from "react-redux";
+import { fetchTherapist } from "../actions/therapistActions";
 
 class Login extends React.Component {
   constructor() {
@@ -22,8 +24,6 @@ class Login extends React.Component {
     event.preventDefault();
     // take the data and fetch based on info
     const therapist = this.state
-    console.log(therapist)
-
     this.props.fetchTherapist(therapist);
     this.setState({
       toTherapist: true,
@@ -81,4 +81,8 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+const mapDispatchToProps = {
+  fetchTherapist
+};
+
+export default connect(null, mapDispatchToProps)(Login);

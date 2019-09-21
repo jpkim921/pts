@@ -4,7 +4,7 @@ import PatientsContainer from "./PatientsContainer";
 import { Navbar } from "../components/Navbar";
 import { connect } from "react-redux";
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class TherapistContainer extends Component {
   render() {
@@ -28,3 +28,6 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(TherapistContainer);
+
+
+// the container needs to send the props to the therapist component.

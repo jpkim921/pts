@@ -1,19 +1,21 @@
 import React from "react";
+import {Link} from "react-router-dom"
 
 export default function Therapist(props) {
+  // console.log(props.therapist.patients.length)
   return (
     <div>
       <div className="card">
         <div className="card-header">Profile Page</div>
         <div className="card-body">
           <h5 className="card-title">{props.therapist.name}</h5>
+          <p className="card-text">Patient Count: {props.therapist.patients.length !== 0 ? props.therapist.patients.length: "None"}</p>
           <p className="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
+            Will add additional metadata such as hours worked and agencies(-ies).
           </p>
-          <a href="#" className="btn btn-primary">
-            Go somewhere
-          </a>
+          <Link className="text-white" to="/therapist">
+            <button className="btn btn-primary">Back to Main Page</button>
+          </Link>
         </div>
       </div>
     </div>

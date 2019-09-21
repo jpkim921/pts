@@ -6,8 +6,6 @@ const Therapists = props => {
   const therapists = props.therapists.map((therapist, index) => {
     return <Therapist key={index} therapist={therapist}/>;
   });
-  // console.log(props)
-  // console.log(props.therapists)
   return (
     <div>
       <h3>Therapists</h3>
