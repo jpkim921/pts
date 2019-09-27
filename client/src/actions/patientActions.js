@@ -7,7 +7,6 @@ export function fetchPatients() {
   };
 }
 
-
 export function createPatient(patient) {
   return (dispatch) => {
     return fetch('/patients', {
@@ -20,5 +19,15 @@ export function createPatient(patient) {
     .then(patient => dispatch ({ type: "UPDATE_THERAPIST_PATIENTS", payload: patient}))
     .then(patient => console.log('Success:', patient))
     .catch(error => console.error('Error:', error));
+  };
+}
+
+export function fetchPatient(id) {
+  return dispatch => {
+    dispatch({ type: "LOADING_PATIENT" });
+    return fetch(`/patients/${id}`)
+      .then(response => response.json())
+      .then(patient => console.log(patient));
+    // .then(patient => dispatch({ type: "FETCH_PATIENT", payload: patient }));
   };
 }
