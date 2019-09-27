@@ -8,15 +8,13 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Therapist from "./components/therapists/Therapist";
 import NewPatient from "./components/patients/NewPatient";
+import { PatientProfile } from "./components/patients/PatientProfile";
 import { connect } from "react-redux";
-import {
-  createTherapist
-} from "./actions/therapistActions";
+import { createTherapist } from "./actions/therapistActions";
 import { fetchPatients, createPatient } from "./actions/patientActions";
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
-
   render() {
     return (
       <div className="container">
@@ -44,9 +42,13 @@ class App extends Component {
             <Route
               path="/:therapist_id/newpatient"
               render={props => (
-                <NewPatient {...props} createPatient={this.props.createPatient} />
+                <NewPatient
+                  {...props}
+                  createPatient={this.props.createPatient}
+                />
               )}
             />
+            <Route path="/patient/:id" component={PatientProfile} />>
           </Switch>
         </Router>
       </div>
