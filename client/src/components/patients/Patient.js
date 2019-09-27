@@ -10,13 +10,12 @@ export const Patient = props => {
             <h5 className="card-title">{props.patient.name}</h5>
           </Link>
           <h6 className="card-subtitle mb-2 text-muted">
-            {`${props.patient.phone}`}
-            {/* {`(${props.patient.phone.slice(0,3)}) - ${props.patient.phone.slice(3,6)} - ${props.patient.phone.slice(6, 10)}`} */}
+            {`Phone: (${props.patient.phone.slice(0,3)})-${props.patient.phone.slice(3,6)}-${props.patient.phone.slice(6, 10)}`}
           </h6>
-          <p className="card-text">
+          {/*<p className="card-text">
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
-          </p>
+          </p> */}
           <a href="#" className="card-link">
             Create Appointment
           </a>
