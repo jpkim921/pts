@@ -8,7 +8,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Therapist from "./components/therapists/Therapist";
 import NewPatient from "./components/patients/NewPatient";
-import { PatientProfile } from "./components/patients/PatientProfile";
+import PatientProfile from "./components/patients/PatientProfile";
 import { connect } from "react-redux";
 import { createTherapist } from "./actions/therapistActions";
 import { fetchPatients, createPatient } from "./actions/patientActions";
@@ -48,7 +48,7 @@ class App extends Component {
                 />
               )}
             />
-            <Route path="/patient/:id" component={PatientProfile} />>
+            <Route path="/patients/:id" component={PatientProfile} />>
           </Switch>
         </Router>
       </div>
