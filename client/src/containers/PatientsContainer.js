@@ -1,7 +1,7 @@
 import React from "react";
 import Patients from "../components/patients/Patients";
 import { connect } from "react-redux";
-
+import {fetchPatient} from "../actions/patientActions";
 
 class PatientsContainer extends React.Component {
   // componentDidMount() {
@@ -12,7 +12,7 @@ class PatientsContainer extends React.Component {
     // console.log("from PatientsContainer: ", this.props.patients)
     return (
       <div>
-        <Patients patients={this.props.patients} />
+        <Patients patients={this.props.patients} fetchPatient = {this.props.fetchPatient}/>
       </div>
     );
   }
@@ -24,4 +24,8 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(PatientsContainer);
+const mapDispatchToProps = {
+  fetchPatient
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PatientsContainer);
