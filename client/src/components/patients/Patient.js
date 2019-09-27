@@ -6,7 +6,15 @@ export const Patient = props => {
     <div className="container">
       <div className="card">
         <div className="card-body">
-          <Link className="text-decoration-none text-reset"to={`/patient/${props.patient.id}`}>
+          {/*<Link className="text-decoration-none text-reset"
+            to={`/patient/${props.patient.id}`}>
+            <h5 className="card-title">{props.patient.name}</h5>
+          </Link>*/}
+          <Link className="text-decoration-none text-reset"
+            to={{
+              pathname:`/patients/${props.patient.id}`,
+              fetchPatient: props.fetchPatient
+            }}>
             <h5 className="card-title">{props.patient.name}</h5>
           </Link>
           <h6 className="card-subtitle mb-2 text-muted">
