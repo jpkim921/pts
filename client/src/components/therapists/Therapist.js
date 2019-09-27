@@ -8,7 +8,7 @@ export default function Therapist(props) {
       <div className="card">
         <div className="card-header">Profile Page</div>
         <div className="card-body">
-          <h5 className="card-title">{props.therapist.name}</h5>
+          <h5 className="card-title">{props.therapist.name}: {props.therapist.discipline}</h5>
           <p className="card-text">Patient Count: {props.therapist.patients.length !== 0 ? props.therapist.patients.length: "None"}</p>
           <p className="card-text">
             Will add additional metadata such as hours worked and agencies(-ies).
