@@ -23,11 +23,11 @@ export function createPatient(patient) {
 }
 
 export function fetchPatient(id) {
-  return dispatch => {
+  return (dispatch) => {
     dispatch({ type: "LOADING_PATIENT" });
     return fetch(`/patients/${id}`)
       .then(response => response.json())
       .then(patient => console.log(patient));
-    // .then(patient => dispatch({ type: "FETCH_PATIENT", payload: patient }));
+      // .then(patient => dispatch({ type: "FETCH_PATIENT", payload: patient }));
   };
 }

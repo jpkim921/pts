@@ -1,7 +1,6 @@
 import React from "react";
 import Patients from "../components/patients/Patients";
 import { connect } from "react-redux";
-import {fetchPatient} from "../actions/patientActions";
 
 class PatientsContainer extends React.Component {
   // componentDidMount() {
@@ -24,8 +23,4 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = {
-  fetchPatient
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(PatientsContainer);
+export default connect(mapStateToProps)(PatientsContainer);

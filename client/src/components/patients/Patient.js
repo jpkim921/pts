@@ -6,14 +6,10 @@ export const Patient = props => {
     <div className="container">
       <div className="card">
         <div className="card-body">
-          {/*<Link className="text-decoration-none text-reset"
-            to={`/patient/${props.patient.id}`}>
-            <h5 className="card-title">{props.patient.name}</h5>
-          </Link>*/}
           <Link className="text-decoration-none text-reset"
             to={{
               pathname:`/patients/${props.patient.id}`,
-              fetchPatient: props.fetchPatient
+              state: props.patient
             }}>
             <h5 className="card-title">{props.patient.name}</h5>
           </Link>
@@ -24,12 +20,12 @@ export const Patient = props => {
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </p> */}
-          <a href="#" className="card-link">
-            Create Appointment
-          </a>
-          <a href="#" className="card-link">
-            Create Note
-          </a>
+          {/*// <a href="#" className="card-link">
+          //   Create Appointment
+          // </a>
+          // <a href="#" className="card-link">
+          //   Create Note
+          // </a>*/}
         </div>
       </div>
     </div>

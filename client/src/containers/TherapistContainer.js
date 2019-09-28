@@ -28,6 +28,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(TherapistContainer);
-
-
-// the container needs to send the props to the therapist component.
