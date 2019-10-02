@@ -14,11 +14,20 @@ export default class PatientProfile extends React.Component {
 
   editButton = event => {
     event.preventDefault();
-    let editButton = document.getElementById("patient-profile-edit");
-    let submitButton = document.getElementById("patient-profile-submit");
+    let fieldsets, editButton, submitButton;
+
+    //take out disabled attribute from fieldset elements
+    fieldsets = document.getElementsByTagName("fieldset");
+    for (let i = 0; i < fieldsets.length; i++) {
+      fieldsets[i].disabled = false;
+    }
+
+    editButton = document.getElementById("patient-profile-edit");
+    submitButton = document.getElementById("patient-profile-submit");
     editButton.setAttribute("hidden", true);
     submitButton.removeAttribute("hidden");
   };
+
 
   render() {
     return (
