@@ -59,7 +59,7 @@ export default class Patients extends React.Component {
 
   renderPatients = () => {
     return this.props.patients.map(patient => {
-      return <Patient key={patient.id} patient={patient} />;
+      return <Patient key={patient.id} patient={patient} updatePatient={this.props.updatePatient}/>;
     });
   };
 

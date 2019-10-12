@@ -12,14 +12,8 @@ export default function patientsReducer(
       return Object.assign({}, state, { loading: false }, {patients: action.payload});
     case "LOADING_PATIENT":
       return Object.assign({}, state, { loading: true });
-    // case "FETCH_THERAPIST":
-    //   console.log("from reducer ", action)
-    //   return Object.assign({}, state, { loading: false }, {therapist: action.payload});
-    // case "CREATING_THERAPIST":
-    //   return Object.assign({}, state, { loading: true });
-    // case "ADD_THERAPIST":
-    // // console.log(action)
-    //   return state.therapists.concat(action.payload);
+    case "UPDATING_PATIENT":
+      return Object.assign({}, state, { loading: true });
     default:
       return state;
   }

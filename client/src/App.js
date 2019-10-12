@@ -32,7 +32,6 @@ class App extends Component {
               )}
             />
             <Route path="/therapist" component={TherapistContainer} />
-            {/*<Route path="/profile" component={Therapist} />*/}
             <Route
               path="/profile"
               render={props => (

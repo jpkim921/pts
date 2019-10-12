@@ -1,17 +1,15 @@
 import React from "react";
 import Patients from "../components/patients/Patients";
 import { connect } from "react-redux";
+import {updatePatient} from "../actions/patientActions";
 
 class PatientsContainer extends React.Component {
-  // componentDidMount() {
-  //   this.props.fetchPatients();
-  // }
 
   render() {
-    // console.log("from PatientsContainer: ", this.props.patients)
+    console.log(this.props.patients)
     return (
       <div>
-        <Patients patients={this.props.patients} fetchPatient = {this.props.fetchPatient}/>
+        <Patients patients={this.props.patients} updatePatient = {this.props.updatePatient}/>
       </div>
     );
   }
@@ -19,8 +17,12 @@ class PatientsContainer extends React.Component {
 
 const mapStateToProps = state => {
   return{
-    patients:state.therapists.patients
+    patients: state.therapists.patients
   }
 }
 
-export default connect(mapStateToProps)(PatientsContainer);
+const mapDispatchToProps = {
+  updatePatient
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PatientsContainer);

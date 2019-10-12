@@ -28,7 +28,7 @@ class TherapistsController < ApplicationController
   end
 
   def update
-    therapist.update(therapist_param)
+    therapist.update(therapist_params)
     render json: therapist
   end
 

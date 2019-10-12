@@ -1,10 +1,42 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class PatientProfile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = props.location.state;
+    // this.state = props.location.state;
+    if (!props.location.state) {
+      this.state = {
+        therapist_id: 1,
+        id:'',
+        name: '',
+        email: '',
+        phone: '',
+        street: '',
+        apt: '',
+        city: '',
+        state: '',
+        zipcode: '',
+        redirect: false,
+      }
+    } else {
+      this.state = {
+        id: props.location.state.id,
+        therapist_id: 1,
+        name: props.location.state.name,
+        email:props.location.state.email,
+        phone: props.location.state.phone,
+        street: props.location.state.street,
+        apt: props.location.state.apt,
+        city: props.location.state.city,
+        state: props.location.state.state,
+        zipcode: props.location.state.zipcode,
+        redirect: false };
+    }
+
   }
+
 
   handleChange = event => {
     this.setState({
@@ -13,7 +45,7 @@ export default class PatientProfile extends React.Component {
   };
 
   editButton = event => {
-    event.preventDefault();
+    // event.preventDefault();
     let fieldsets, editButton, submitButton;
 
     //take out disabled attribute from fieldset elements
@@ -28,12 +60,35 @@ export default class PatientProfile extends React.Component {
     submitButton.removeAttribute("hidden");
   };
 
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log("from handleSubmit",this.state)
+    this.props.location.updatePatient(this.state.id, this.state);
+    this.setState({
+        id: '',
+        name: '',
+        email: '',
+        phone: '',
+        street: '',
+        apt: '',
+        city: '',
+        state: '',
+        zipcode: '',
+        redirect: true,
+    })
+  };
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/therapist" />;
+    }
     return (
       <div className="container">
         <h4>Patient Profile</h4>
-        <form action="">
+        <div>
+          <Link to="/therapist">Main Page</Link>
+        </div>
+        <form onSubmit={this.handleSubmit}>
           <div className="row">
             <div className="col">
               <fieldset className="form-group" disabled>
@@ -127,89 +182,17 @@ export default class PatientProfile extends React.Component {
               >
                 Submit
               </button>
-              <button
-                onClick={this.editButton}
-                id="patient-profile-edit"
-                className="btn btn-secondary form-control"
-              >
-                Edit
-              </button>
             </div>
           </div>
         </form>
+        <button
+          onClick={this.editButton}
+          id="patient-profile-edit"
+          className="btn btn-secondary form-control"
+        >
+          Edit
+        </button>
       </div>
     );
   }
-}
-
-{
-  /*<form action="">
-<div className="row">
-  <div className="col">
-    <fieldset className="form-group">
-      <legend>Contact Info:</legend>
-      <input
-        className="form-control"
-        placeholder="Enter Full Name"
-        value={`${props.patient.name}`}
-      />
-      <input
-        className="form-control"
-        type="text"
-        placeholder="Enter Email"
-        value={`${props.patient.email}`}
-      />
-      <input
-        className="form-control"
-        type="text"
-        placeholder="Enter Phone Number"
-        value={`${props.patient.phone}`}
-      />
-    </fieldset>
-  </div>
-  <div className="col">
-    <fieldset className="form-group">
-      <legend>Address:</legend>
-      <input
-        className="form-control"
-        type="text"
-        placeholder="Address 1"
-        value={`${props.patient.street}`}
-      />
-      <input
-        className="form-control"
-        type="text"
-        placeholder="Address 2"
-        value={`${props.patient.apt}`}
-      />
-      <div class="form-row">
-        <div class="col-7">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="City"
-            value={`${props.patient.city}`}
-          />
-        </div>
-        <div class="col">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="State"
-            value={`${props.patient.state}`}
-          />
-        </div>
-        <div class="col">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Zip"
-            value={`${props.patient.zipcode}`}
-          />
-        </div>
-      </div>
-    </fieldset>
-  </div>
-</div>
-</form>*/
 }

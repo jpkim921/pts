@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
     resources :therapists do
       # resources :therapists, path: "therapists/:email(/:phone)" only: [:index]
-      resources :patients, only: [:index, :new, :create, :show, :edit]
+      resources :patients, only: [:index, :new, :create, :show, :edit,:update]
     end
 
     resources :patients

@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-  before_action :set_patient, only: [:show, :update, :destroy]
+  before_action :set_patient, only: [:show, :edit, :update, :destroy]
 
 
   def index
@@ -61,8 +61,9 @@ class PatientsController < ApplicationController
   end
 
   def update
-    @patient.update(patient_param)
-    render json: patient
+    # binding.pry
+    @patient.update(patient_params)
+    render json: @patient
   end
 
   def destroy
@@ -75,6 +76,7 @@ class PatientsController < ApplicationController
   end
 
   def patient_params
-    params.require(:patient).permit(:name, :email, :phone, :street, :apt, :city, :state, :zipcode, :therapist_id)
+    params.require(:patient).permit(:name, :email, :phone, :street, :apt, :city, :state, :zipcode)
   end
 end
+# curl http://localhost:3001/patients/1 -XPUT -d"name=CHANGED&email=KF@test.com&phone=1111111111&street=39CloudStreet&apt=49L&city=NewYorkCity&state=NewYork&zipcode=10001&therapist_id=1"

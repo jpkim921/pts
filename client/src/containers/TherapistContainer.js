@@ -23,7 +23,8 @@ class TherapistContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    therapist: state.therapists.therapist
+    therapist: state.therapists.therapist,
+    // patients: state.therapists.therapist.patients
   };
 };
 
