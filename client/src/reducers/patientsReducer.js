@@ -14,6 +14,8 @@ export default function patientsReducer(
       return Object.assign({}, state, { loading: true });
     case "UPDATING_PATIENT":
       return Object.assign({}, state, { loading: true });
+    case "UPDATE_PATIENT":
+      console.log(action.payload)
     default:
       return state;
   }

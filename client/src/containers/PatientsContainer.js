@@ -6,7 +6,6 @@ import {updatePatient} from "../actions/patientActions";
 class PatientsContainer extends React.Component {
 
   render() {
-    console.log(this.props.patients)
     return (
       <div>
         <Patients patients={this.props.patients} updatePatient = {this.props.updatePatient}/>

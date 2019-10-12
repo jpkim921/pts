@@ -1,41 +1,8 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default class PatientProfile extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.state = props.location.state;
-    if (!props.location.state) {
-      this.state = {
-        therapist_id: 1,
-        id:'',
-        name: '',
-        email: '',
-        phone: '',
-        street: '',
-        apt: '',
-        city: '',
-        state: '',
-        zipcode: '',
-        redirect: false,
-      }
-    } else {
-      this.state = {
-        id: props.location.state.id,
-        therapist_id: 1,
-        name: props.location.state.name,
-        email:props.location.state.email,
-        phone: props.location.state.phone,
-        street: props.location.state.street,
-        apt: props.location.state.apt,
-        city: props.location.state.city,
-        state: props.location.state.state,
-        zipcode: props.location.state.zipcode,
-        redirect: false };
-    }
-
-  }
+  state=this.props.location.state
 
 
   handleChange = event => {
@@ -48,7 +15,7 @@ export default class PatientProfile extends React.Component {
     // event.preventDefault();
     let fieldsets, editButton, submitButton;
 
-    //take out disabled attribute from fieldset elements
+    //remove disabled attribute from fieldset elements
     fieldsets = document.getElementsByTagName("fieldset");
     for (let i = 0; i < fieldsets.length; i++) {
       fieldsets[i].disabled = false;
@@ -62,26 +29,10 @@ export default class PatientProfile extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log("from handleSubmit",this.state)
     this.props.location.updatePatient(this.state.id, this.state);
-    this.setState({
-        id: '',
-        name: '',
-        email: '',
-        phone: '',
-        street: '',
-        apt: '',
-        city: '',
-        state: '',
-        zipcode: '',
-        redirect: true,
-    })
   };
 
   render() {
-    if (this.state.redirect) {
-      return <Redirect to="/therapist" />;
-    }
     return (
       <div className="container">
         <h4>Patient Profile</h4>
