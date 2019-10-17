@@ -28,8 +28,20 @@ export default class PatientProfile extends React.Component {
   };
 
   handleSubmit = event => {
+    let fieldsets, editButton, submitButton;
+
     event.preventDefault();
     this.props.location.updatePatient(this.state.id, this.state);
+
+    fieldsets = document.getElementsByTagName("fieldset");
+    for (let i = 0; i < fieldsets.length; i++) {
+      fieldsets[i].disabled = true;
+    }
+
+    editButton = document.getElementById("patient-profile-edit");
+    submitButton = document.getElementById("patient-profile-submit");
+    submitButton.setAttribute("hidden", true);
+    editButton.removeAttribute("hidden");
   };
 
   render() {
