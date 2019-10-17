@@ -2,9 +2,8 @@ import React from "react";
 import Therapist from "./Therapist";
 
 const Therapists = props => {
-  // debugger;
   const therapists = props.therapists.map((therapist, index) => {
-    return <Therapist key={index} therapist={therapist}/>;
+    return <Therapist key={index} therapist={therapist} />;
   });
   return (
     <div>
