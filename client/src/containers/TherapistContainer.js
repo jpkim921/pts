@@ -15,7 +15,10 @@ class TherapistContainer extends Component {
           createPatient={this.props.createTherapist}
         />
         {/*<Therapist therapist={this.props.therapist} />*/}
-        <PatientsContainer fetchPatients={this.props.fetchPatients} />
+        <PatientsContainer
+          fetchPatients={this.props.fetchPatients}
+          therapistId={this.props.therapist.id}
+        />
       </div>
     );
   }
@@ -23,7 +26,7 @@ class TherapistContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    therapist: state.therapists.therapist,
+    therapist: state.therapists.therapist
     // patients: state.therapists.therapist.patients
   };
 };

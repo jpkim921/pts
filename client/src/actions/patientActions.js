@@ -27,26 +27,22 @@ export function createPatient(patient) {
   };
 }
 
-export function updatePatient(id, patientInfo) {
+export function updatePatient(patientInfo) {
   return dispatch => {
     dispatch({ type: "UPDATING_THERAPIST_PATIENT" });
-    return fetch(`/therapists/1/patients/${id}`, {
-      method: "PUT",
-      body: JSON.stringify(patientInfo),
-      headers: {
-        "Content-Type": "application/json"
+    return fetch(
+      `/therapists/${patientInfo.therapistId}/patients/${patientInfo.id}`,
+      {
+        method: "PUT",
+        body: JSON.stringify(patientInfo),
+        headers: {
+          "Content-Type": "application/json"
+        }
       }
-    })
+    )
       .then(response => response.json())
       .then(patient =>
         dispatch({ type: "UPDATE_THERAPIST_PATIENT", payload: patient })
       );
   };
 }
-
-const updatePatientAction = patientInfo => {
-  return {
-    type: "UPDATE_THERAPIST_PATIENT",
-    payload: patientInfo
-  };
-};

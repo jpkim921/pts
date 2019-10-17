@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default class PatientProfile extends React.Component {
-  state=this.props.location.state
-
+  state = this.props.location.state;
 
   handleChange = event => {
     this.setState({
@@ -31,7 +30,8 @@ export default class PatientProfile extends React.Component {
     let fieldsets, editButton, submitButton;
 
     event.preventDefault();
-    this.props.location.updatePatient(this.state.id, this.state);
+    console.log(this.state);
+    this.props.location.updatePatient(this.state);
 
     fieldsets = document.getElementsByTagName("fieldset");
     for (let i = 0; i < fieldsets.length; i++) {
@@ -45,6 +45,7 @@ export default class PatientProfile extends React.Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <div className="container">
         <h4>Patient Profile</h4>

@@ -2,17 +2,10 @@ import React from "react";
 import { Patient } from "./Patient";
 
 export default class Patients extends React.Component {
-
-  // renderPatients = () => {
-  //   return this.props.patients.map(patient => {
-  //     return <Patient key={patient.id} patient={patient} updatePatient={this.props.updatePatient}/>;
-  //   });
-  // };
-
   render() {
     const renderedPatients = () => {
       return this.props.patients.map(patient => {
-        return <Patient key={patient.id} patient={patient} updatePatient={this.props.updatePatient}/>;
+        return <Patient key={patient.id} patient={patient} therapistId={this.props.therapistId} updatePatient={this.props.updatePatient}/>;
       });
     };
 
