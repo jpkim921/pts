@@ -34,11 +34,6 @@ class PatientsController < ApplicationController
   end
 
 
-  # def new
-  #   @parent = Parent.find(session[:parent_id])
-  #   @child = Child.new(parent_id: params[:parent_id])
-  # end
-
   # def create
   #   # @therapist = Therapist.find(patient_params[:therapist_id])
   #   # @patient = @therapist.patients.build(patient_params)
@@ -49,7 +44,7 @@ class PatientsController < ApplicationController
 
   def create
     # binding.pry
-    @therapist = Therapist.find(patient_params[:therapist_id])
+    @therapist = Therapist.find(patient_params[:therapist_id].to_i)
     newpatientParams = patient_params.reject {|k,v| k == "therapist_id"}
     @patient = Patient.new(newpatientParams)
     @patient.therapists << @therapist
@@ -76,7 +71,7 @@ class PatientsController < ApplicationController
   end
 
   def patient_params
-    params.require(:patient).permit(:name, :email, :phone, :street, :apt, :city, :state, :zipcode)
+    params.require(:patient).permit(:name, :email, :phone, :street, :apt, :city, :state, :zipcode, :therapist_id, :toTherapist)
   end
 end
 # curl http://localhost:3001/patients/1 -XPUT -d"name=CHANGED&email=KF@test.com&phone=1111111111&street=39CloudStreet&apt=49L&city=NewYorkCity&state=NewYork&zipcode=10001&therapist_id=1"

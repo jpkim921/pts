@@ -7,6 +7,7 @@ export default class AddPatient extends React.Component {
     name: "name-placeholder",
     email: "email-placeholder",
     phone: "456-placeholder",
+    // phone: "1234567890",
     street: "street-placeholder",
     apt: "apt-placeholder",
     city: "NYC-placeholder",
@@ -23,6 +24,7 @@ export default class AddPatient extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    delete this.state["toTherapist"];
     console.log("New Patient Info: ", this.state);
     this.props.createPatient(this.state);
     this.setState({
