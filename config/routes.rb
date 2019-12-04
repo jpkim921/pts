@@ -5,14 +5,16 @@ Rails.application.routes.draw do
   # get 'therapist/destroy'
 
   # route below is to send the form data as params from login form
-    post 'therapist', to: 'therapists#show'
+    # post 'therapist', to: 'therapists#show'
 
-    resources :therapists do
-      # resources :therapists, path: "therapists/:email(/:phone)" only: [:index]
-      resources :patients, only: [:index, :new, :create, :show, :edit,:update]
-    end
+    # resources :therapists do
+    #   # resources :therapists, path: "therapists/:email(/:phone)" only: [:index]
+    #   resources :patients, only: [:index, :new, :create, :show, :edit,:update]
+    # end
 
-    resources :patients
+    resources :patients, controller: 'patients'
+      delete '/patients/:id', to: 'patients#destroy'
+
 
 
   # end

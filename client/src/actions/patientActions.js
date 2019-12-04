@@ -46,3 +46,15 @@ export function updatePatient(patientInfo) {
       );
   };
 }
+
+export function deletePatient(id) {
+  console.log(id);
+  return fetch(`/patients/${id}`, {
+    method: "DELETE"
+  })
+    .then(response => response.json())
+    .then(patients => console.log(patients));
+  // .then(patients =>
+  //   dispatch({ type: "DELETE_PATIENT", payload: patients })
+  // );
+}

@@ -10,7 +10,7 @@ import PatientsContainer from "./containers/PatientsContainer";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { updatePatient } from "./actions/patientActions";
+import { updatePatient, deletePatient } from "./actions/patientActions";
 
 class App extends Component {
   render() {
@@ -22,10 +22,9 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={PatientsContainer} />
-            {/* <Route path="/patient/:patientId" component={PatientProfile} /> */}
             <Route
               path="/patient/:patientId"
-              render={props => <PatientProfile {...props} updatePatient={updatePatient} />}
+              render={props => <PatientProfile {...props} updatePatient={updatePatient} deletePatient={deletePatient} />}
             />
           </Switch>
         </Router>
@@ -34,12 +33,9 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {};
-};
-
 const mapDispatchToProps = {
-  updatePatient
+  updatePatient,
+  deletePatient
 };
 
 export default connect(null, mapDispatchToProps)(App);

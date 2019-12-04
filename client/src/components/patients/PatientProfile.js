@@ -18,8 +18,7 @@ export default class PatientProfile extends React.Component {
     });
   };
 
-  editButton = event => {
-    // event.preventDefault();
+  editButton = () => {
     let fieldsets, editButton, submitButton;
 
     //remove disabled attribute from fieldset elements
@@ -52,9 +51,13 @@ export default class PatientProfile extends React.Component {
     editButton.removeAttribute("hidden");
   };
 
+  handleDelete = () => {
+    this.props.deletePatient(this.state.id)
+  }
+
   render() {
-    console.log(this.state);
-    console.log(this.props);
+    console.log("state", this.state);
+    // console.log("props", this.props);
     if (this.state == null) {
       return (
         <div className="container">
@@ -65,6 +68,7 @@ export default class PatientProfile extends React.Component {
       return (
         <div className="container">
           <h4>Patient Profile</h4>
+          <div><button onClick={this.handleDelete}>Delete Patient</button></div>
           <div>
             <Link to="/">Main Page</Link>
           </div>
