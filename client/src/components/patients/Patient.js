@@ -9,9 +9,8 @@ export const Patient = props => {
           <Link
             className="text-decoration-none text-reset"
             to={{
-              pathname: `/patients/${props.patient.id}`,
+              pathname: `/patient/${props.patient.id}`,
               updatePatient: props.updatePatient,
-              state: { ...props.patient, therapistId: props.therapistId }
             }}
           >
             <h5 className="card-title">{props.patient.name}</h5>

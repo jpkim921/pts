@@ -10,13 +10,23 @@ import PatientsContainer from "./containers/PatientsContainer";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-export default class App extends Component {
+import { updatePatient } from "./actions/patientActions";
+
+class App extends Component {
   render() {
+    
+    let {updatePatient} = this.props
+
     return (
       <div className="container">
         <Router>
           <Switch>
             <Route exact path="/" component={PatientsContainer} />
+            {/* <Route path="/patient/:patientId" component={PatientProfile} /> */}
+            <Route
+              path="/patient/:patientId"
+              render={props => <PatientProfile {...props} updatePatient={updatePatient} />}
+            />
           </Switch>
         </Router>
       </div>
@@ -24,4 +34,12 @@ export default class App extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {};
+};
 
+const mapDispatchToProps = {
+  updatePatient
+};
+
+export default connect(null, mapDispatchToProps)(App);
