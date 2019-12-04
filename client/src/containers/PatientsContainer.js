@@ -10,10 +10,12 @@ class PatientsContainer extends Component {
 
   render() {
     
+    let {patients} = this.props
 
     return (
       <div>
         <h1>PatientsContainer Component</h1>
+        <Patients patients={patients} />
       </div>
     );
   }
