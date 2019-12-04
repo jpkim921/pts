@@ -1,33 +1,16 @@
-import React from "react";
+import React, {Component} from "react";
 import Patients from "../components/patients/Patients";
 import { connect } from "react-redux";
 import { updatePatient } from "../actions/patientActions";
 
-class PatientsContainer extends React.Component {
+class PatientsContainer extends Component {
   render() {
     return (
       <div>
-        <Patients
-          therapistId={this.props.therapistId}
-          patients={this.props.patients}
-          updatePatient={this.props.updatePatient}
-        />
+        <h1>PatientsContainer Component</h1>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    patients: state.therapists.patients
-  };
-};
-
-const mapDispatchToProps = {
-  updatePatient
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PatientsContainer);
+export default PatientsContainer;
