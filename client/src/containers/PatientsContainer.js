@@ -1,10 +1,16 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Patients from "../components/patients/Patients";
 import { connect } from "react-redux";
-import { updatePatient } from "../actions/patientActions";
+import { fetchPatients, updatePatient } from "../actions/patientActions";
 
 class PatientsContainer extends Component {
+  componentDidMount() {
+    this.props.fetchPatients();
+  }
+
   render() {
+    
+
     return (
       <div>
         <h1>PatientsContainer Component</h1>
@@ -13,4 +19,14 @@ class PatientsContainer extends Component {
   }
 }
 
-export default PatientsContainer;
+const mapStateToProps = state => {
+  return {
+    patients: state.patients.patients
+  };
+};
+
+const mapDispatchToProps = {
+  fetchPatients
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PatientsContainer);
