@@ -20,27 +20,12 @@ class PatientsController < ApplicationController
       patients = Patient.all
       render json: patients.as_json(include:[:therapists])
     end
-
-    # @patients = Patient.all
-    # render json: @patients.as_json(include:[:therapists])
   end
-  # def index
-  #   @patients = Patient.all
-  #   render json: @patients.as_json(include:[:therapists])
-  # end
+
 
   def show
     render json: @patient.as_json(include:[:therapists])
   end
-
-
-  # def create
-  #   # @therapist = Therapist.find(patient_params[:therapist_id])
-  #   # @patient = @therapist.patients.build(patient_params)
-  #
-  #   @patient = patient.create(patient_params)
-  #   render json: patient
-  # end
 
   def create
     # binding.pry
@@ -48,9 +33,6 @@ class PatientsController < ApplicationController
     newpatientParams = patient_params.reject {|k,v| k == "therapist_id"}
     @patient = Patient.new(newpatientParams)
     @patient.therapists << @therapist
-
-    # @patient = @therapist.patients.build(newpatientParams)
-
     @patient.save
     render json: @patient
   end
@@ -75,3 +57,5 @@ class PatientsController < ApplicationController
   end
 end
 # curl http://localhost:3001/patients/1 -XPUT -d"name=CHANGED&email=KF@test.com&phone=1111111111&street=39CloudStreet&apt=49L&city=NewYorkCity&state=NewYork&zipcode=10001&therapist_id=1"
+# curl -X DELETE http://localhost:3001/patients/9
+# delete is working but it's not reaching from the app
