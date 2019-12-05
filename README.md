@@ -1,25 +1,19 @@
-# README
+# PTS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This React + Redux app is meant for individual homecare service providers. The app is meant to track an individuals patient load and appointments.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+* Make sure you have Rails, Node and NPM setup.
+* Either download or fork the repo.
+* CD into the app directory and bundle install.
+* Run rake db:setup to set up initial database
+* Start app with command: rake start
 
-* System dependencies
+## Contributing
 
-* Configuration
+Bug reports and pull requests are welcome on GitHub at [https://github.com/jpkim921/PTS](https://github.com/jpkim921/PTS). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 
-* Database creation
+## License
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# pts
+The app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
