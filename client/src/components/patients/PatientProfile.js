@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AppointmentsForm from "./../appointments/AppointmentsForm"
+import AppointmentsContainer from "../../containers/AppointmentsContainer";
+
 
 export default class PatientProfile extends React.Component {
   // state={}
@@ -57,8 +60,6 @@ export default class PatientProfile extends React.Component {
   }
 
   render() {
-    console.log("state", this.state);
-    // console.log("props", this.props);
     if (this.state == null) {
       return (
         <div className="container">
@@ -69,7 +70,9 @@ export default class PatientProfile extends React.Component {
       return (
         <div className="container">
           <h4>Patient Profile</h4>
-          <div><button onClick={this.handleDelete}>Delete Patient</button></div>
+          <div>
+            <button onClick={this.handleDelete}>Delete Patient</button>
+          </div>
           <div>
             <Link to="/">Main Page</Link>
           </div>
@@ -177,6 +180,12 @@ export default class PatientProfile extends React.Component {
           >
             Edit
           </button>
+          <div>
+            <AppointmentsForm />
+          </div>
+          <div>
+            <AppointmentsContainer patientId={this.state.id} />
+          </div>
         </div>
       );
     }

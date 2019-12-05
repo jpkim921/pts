@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-// import therapistsReducer from './therapistsReducer'
 import patientsReducer from './patientsReducer'
+import appointmentsReducer from './appointmentsReducer'
 
 const rootReducer = combineReducers({
-  // therapists:therapistsReducer,
-  patients:patientsReducer
+  patients:patientsReducer,
+  appointments: appointmentsReducer
 });
 
 export default rootReducer

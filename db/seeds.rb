@@ -79,13 +79,13 @@ patients = [
 
 appointments = [
   {
-    date: "date1",
-    time: "time1",
+    date: "2019-12-05",
+    time: "08:00",
     patient_id: "1"
   },
   {
-    date: "date2",
-    time: "time2",
+    date: "2019-12-06",
+    time: "10:00",
     patient_id: "2"
   }
 ]
