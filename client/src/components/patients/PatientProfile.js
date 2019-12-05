@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AppointmentsForm from "./../appointments/AppointmentsForm"
 import AppointmentsContainer from "../../containers/AppointmentsContainer";
 
 
@@ -180,9 +179,7 @@ export default class PatientProfile extends React.Component {
           >
             Edit
           </button>
-          <div>
-            <AppointmentsForm />
-          </div>
+
           <div>
             <AppointmentsContainer patientId={this.state.id} />
           </div>

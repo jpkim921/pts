@@ -35,7 +35,7 @@ class App extends Component {
 
 const mapDispatchToProps = {
   updatePatient,
-  deletePatient
+  deletePatient,
 };
 
 export default connect(null, mapDispatchToProps)(App);

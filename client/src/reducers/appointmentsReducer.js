@@ -12,7 +12,12 @@ export default function appointmentsReducer(
         { loading: false },
         { appointments: action.payload }
       );
-
+    case "CREATING_APPOINTMENT":
+      return Object.assign({}, state, { loading: true });
+    case "CREATE_APPOINTMENT":
+      // console.log(action)
+      // console.log(state.appointments.concat(action.payload))
+      return state.appointments.concat(action.payload);
     default:
       return state;
   }

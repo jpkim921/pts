@@ -3,10 +3,10 @@ import React, { Component } from "react";
 export default class AppointmentForm extends Component {
   constructor(props) {
     super(props);
-
     let today = new Date().toISOString().substr(0, 10);
 
     this.state = {
+      patient_id: props.patientId,
       date: today,
       time: "08:00"
     };
@@ -20,10 +20,13 @@ export default class AppointmentForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    let { createAppointment } = this.props;
+    createAppointment(this.state);
   };
 
   render() {
     console.log(this.state);
+    console.log("props", this.props);
     // let today = new Date().toISOString().substr(0, 10);
 
     return (

@@ -12,8 +12,12 @@ Rails.application.routes.draw do
     #   resources :patients, only: [:index, :new, :create, :show, :edit,:update]
     # end
 
-    resources :patients, controller: 'patients'
-      delete '/patients/:id', to: 'patients#destroy'
+    resources :patients do
+      resources :appointments, only: [:index, :new, :create, :show, :edit,:update]
+    end
+
+    # resources :patients, controller: 'patients'
+    delete '/patients/:id', to: 'patients#destroy'
 
     # resources :appointments, controller: 'appointments'
     resources :appointments

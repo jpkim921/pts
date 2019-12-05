@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {fetchAppointments} from "./../actions/appointmentActions"
-import Appointments from "./../components/appointments/Appointments"
+import AppointmentsForm from "./../components/appointments/AppointmentsForm"
+import Appointments from "./../components/appointments/Appointments";
+import {
+  fetchAppointments,
+  createAppointment
+} from "./../actions/appointmentActions";
+
 
 class AppointmentsContainer extends Component {
 
@@ -10,12 +15,17 @@ class AppointmentsContainer extends Component {
     fetchAppointments()
   }
 
+  
+
   render() {
-    let { appointments } = this.props;
+    let { appointments, createAppointment, patientId } = this.props;
 
     return (
       <div>
         <h1>Appointments Container</h1>
+        <div>
+          <AppointmentsForm patientId={patientId} createAppointment={createAppointment} />
+        </div>
         <Appointments appointments={appointments} />
       </div>
     );
@@ -29,7 +39,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  fetchAppointments
+  fetchAppointments,
+  createAppointment
 };
 
 export default connect(
