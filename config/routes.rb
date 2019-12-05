@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     resources :patients, controller: 'patients'
       delete '/patients/:id', to: 'patients#destroy'
 
+    # resources :appointments, controller: 'appointments'
+    resources :appointments
+      delete '/appointments/:id', to: 'appointments#destroy'
 
 
   # end

@@ -77,6 +77,19 @@ patients = [
   }
 ]
 
+appointments = [
+  {
+    date: "date1",
+    time: "time1",
+    patient_id: "1"
+  },
+  {
+    date: "date2",
+    time: "time2",
+    patient_id: "2"
+  }
+]
+
 therapists.each do |therapist|
   Therapist.create(therapist)
 end
@@ -85,8 +98,9 @@ patients.each do |patient|
   Patient.create(patient)
 end
 
-
-
+appointments.each do |appointment|
+  Appointment.create(appointment)
+end
 
 Patient.all[0].therapists.push(Therapist.all[0])
 Patient.all[1].therapists.push(Therapist.all[0])
@@ -95,3 +109,6 @@ Patient.all[2].therapists.push(Therapist.all[1])
 Patient.all[3].therapists.push(Therapist.all[0])
 Patient.all[3].therapists.push(Therapist.all[1])
 Patient.all[4].therapists.push(Therapist.all[1])
+
+Patient.all[0].appointments.push(Appointment.all[0])
+Patient.all[0].appointments.push(Appointment.all[1])
