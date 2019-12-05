@@ -3,23 +3,25 @@ class AppointmentsController < ApplicationController
 
 
   def index
-    filtered_appointments = []
+    # filtered_appointments = []
 
-    if appointment_params["patient_id"]
-      filtered_appointments = []
+    # if appointment_params["patient_id"]
+    #   filtered_appointments = []
 
-      Appointment.all.each do |appointment|
-        if patient.appointments.any? { |appointment| appointment.id.to_s === appointment_params["patient_id"] }
-          filtered_appointments << appointment
-        end
-      end
-      # @appointments = filtered_appointments
-      render json: @appointments
-    else
-      @appointments = Appointment.all
-      render json: @appointments
-    end
-end
+    #   Appointment.all.each do |appointment|
+    #     if patient.appointments.any? { |appointment| appointment.id.to_s === appointment_params["patient_id"] }
+    #       filtered_appointments << appointment
+    #     end
+    #   end
+    #   # @appointments = filtered_appointments
+    #   render json: @appointments
+    # else
+    #   @appointments = Appointment.all
+    #   render json: @appointments
+    # end
+    @appointments = Appointment.all
+    render json: @appointments
+  end
 
 
   def show
@@ -27,10 +29,10 @@ end
   end
 
   def create
+    # binding.pry
     @patient = Patient.find(appointment_params["patient_id"])
     newappointmentParams = appointment_params.reject {|k,v| k == "patient_id"}
     @appointment = Appointment.new(newappointmentParams)
-    binding.pry
     @patient.appointments << @appointment
     @appointment.save
     render json: @appointment
