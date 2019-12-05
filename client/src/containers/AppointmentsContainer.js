@@ -15,11 +15,10 @@ class AppointmentsContainer extends Component {
     fetchAppointments()
   }
 
-  
 
   render() {
     let { appointments, createAppointment, patientId } = this.props;
-
+    console.log("QWE",appointments)
     return (
       <div>
         <h1>Appointments Container</h1>

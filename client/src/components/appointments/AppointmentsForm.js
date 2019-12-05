@@ -18,17 +18,13 @@ export default class AppointmentForm extends Component {
     });
   };
 
-  handleSubmit = event => {
-    event.preventDefault();
+  handleSubmit = () => {
     let { createAppointment } = this.props;
     createAppointment(this.state);
   };
 
   render() {
-    console.log(this.state);
-    console.log("props", this.props);
-    // let today = new Date().toISOString().substr(0, 10);
-
+console.log(this.props);
     return (
       <div className="container">
         <h3>Apointment Form</h3>
