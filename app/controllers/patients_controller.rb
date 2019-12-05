@@ -45,6 +45,14 @@ class PatientsController < ApplicationController
 
   def destroy
     @patient.destroy
+
+    # @delete_response :{
+    #   patient_deleted: true,
+    # }.to_json
+
+    patients = Patient.all
+    render json: patients.as_json
+
   end
 
   private

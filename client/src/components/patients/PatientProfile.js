@@ -53,6 +53,7 @@ export default class PatientProfile extends React.Component {
 
   handleDelete = () => {
     this.props.deletePatient(this.state.id)
+    this.props.history.push("/")
   }
 
   render() {
