@@ -1,5 +1,6 @@
 import React from "react";
-import { Patient } from "./Patient";
+// import { Patient } from "./Patient";
+import Patient from "./Patient";
 
 export default class Patients extends React.Component {
   render() {

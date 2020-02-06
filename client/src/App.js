@@ -4,6 +4,7 @@ import "./App.css";
 import TherapistContainer from "./containers/TherapistContainer";
 // import Therapists from "./components/therapists/Therapists";
 import Greetings from "./components/Greetings";
+import DifferentGreetings from "./components/DifferentGreetings";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Therapist from "./components/therapists/Therapist";
@@ -21,6 +22,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Greetings} />
+            {/* <Route exact path="/" component={DifferentGreetings} /> */}
             <Route path="/login" component={Login} />
             <Route
               path="/signup"

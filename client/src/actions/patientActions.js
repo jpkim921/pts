@@ -9,7 +9,8 @@ export function fetchPatients() {
   };
 }
 
-export function createPatient(patient) {
+export function createPatient(patient) { // ACBD
+  console.log("C")
   return dispatch => {
     return fetch("/therapists/1/patients", {
       method: "POST",
@@ -19,12 +20,15 @@ export function createPatient(patient) {
       }
     })
       .then(response => response.json())
-      .then(patient =>
+      .then(patient =>{
+        console.log("D")
         dispatch({ type: "UPDATE_THERAPIST_PATIENTS", payload: patient })
+      }
       )
-      .then(patient => console.log("Success:", patient))
+      //.then(patient => console.log("Success:", patient))
       .catch(error => console.error("Error:", error));
   };
+  console.log("E")
 }
 
 export function updatePatient(patientInfo) {
