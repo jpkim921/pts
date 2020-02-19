@@ -4,7 +4,6 @@ import "./App.css";
 import TherapistContainer from "./containers/TherapistContainer";
 // import Therapists from "./components/therapists/Therapists";
 import Greetings from "./components/Greetings";
-import DifferentGreetings from "./components/DifferentGreetings";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Therapist from "./components/therapists/Therapist";
@@ -14,6 +13,7 @@ import { connect } from "react-redux";
 import { createTherapist } from "./actions/therapistActions";
 import { fetchPatients, createPatient } from "./actions/patientActions";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 
 class App extends Component {
   render() {
