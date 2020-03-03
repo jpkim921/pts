@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Therapist(props) {
+  console.log(props)
   return (
     <div>
       <div className="card">
@@ -17,8 +18,8 @@ export default function Therapist(props) {
               : "None"}
           </p>
           <p className="card-text">
-            Will add additional metadata such as hours worked and
-            agencies(-ies).
+            To add additional metadata as app continues to develop.<br/>
+            Additional metadata such as hours worked, affiliated agency(-ies) and others.
           </p>
           <Link className="text-white" to="/therapist">
             <button className="btn btn-primary">Back to Main Page</button>

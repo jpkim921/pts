@@ -1,5 +1,6 @@
 import React from "react";
-import { Patient } from "./Patient";
+
+import Patient from "./Patient";
 
 export default function Patients(props) {
   let { patients } = props;

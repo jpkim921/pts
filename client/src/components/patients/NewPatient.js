@@ -25,8 +25,10 @@ export default class AddPatient extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     delete this.state["toTherapist"];
-    console.log("New Patient Info: ", this.state);
+    //console.log("New Patient Info: ", this.state);
+    console.log('A')
     this.props.createPatient(this.state);
+    console.log('B')
     this.setState({
       name: "",
       email: "",

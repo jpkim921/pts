@@ -12,10 +12,6 @@ class LandingPage extends React.Component {
           </div>
           <h2>Track Patients and Appointments the Easy Way</h2>
           <div className="signup">
-            {/* <form action="">
-              <input type="text" placeholder="Enter Email..." />>
-              <input type="submit" />>
-            </form> */}
             <Link to="/signup">
               <button className="btn btn-primary">Sign Up</button>
             </Link>
@@ -25,10 +21,9 @@ class LandingPage extends React.Component {
           </div>
           <img
             className="hero-image"
-            src="https://images.unsplash.com/photo-1561746254-c5c290762792?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-            alt=""
+            src="https://images.unsplash.com/photo-1561746254-c5c290762792"
+            alt="overview image of desk with cell phone, desktop, and misc accessories"
           />
-          >
           <div className="more-info">
             <div className="col col1">
               <h3>Lorem, ipsum dolor.</h3>

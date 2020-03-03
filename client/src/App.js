@@ -22,6 +22,18 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={PatientsContainer} />
+            {/* <Route exact path="/" component={Greetings} />
+            <Route path="/login" component={Login} />
+            <Route
+              path="/signup"
+              render={props => (
+                <Signup
+                  {...props}
+                  createTherapist={this.props.createTherapist}
+                />
+              )}
+            />
+            <Route path="/therapist" component={TherapistContainer} /> */}
             <Route
               path="/patient/:patientId"
               render={props => <PatientProfile {...props} updatePatient={updatePatient} deletePatient={deletePatient} />}

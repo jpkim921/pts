@@ -107,7 +107,7 @@ class Signup extends React.Component {
                 Physical Therapist
               </div>
               <div className="form-group">
-                <input class="btn btn-primary" type="submit" />
+                <input className="btn btn-primary" type="submit" />
               </div>
             </form>
           </div>
