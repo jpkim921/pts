@@ -14,23 +14,14 @@ export default class Patient extends React.Component{
           <Link
             className="text-decoration-none text-reset"
             to={{
-              pathname: `/patient/${props.patient.id}`,
-              updatePatient: props.updatePatient,
-              // pathname: `/patients/${this.props.patient.id}`,
-              // updatePatient: this.props.updatePatient,
-              // state: { ...this.props.patient, therapistId: this.props.therapistId }
+              pathname: `/patient/${this.props.patient.id}`,
+              updatePatient: this.props.updatePatient,
             }}
           >
             <h5 className="card-title">{this.props.patient.name}</h5>
           </Link>
           <h6 className="card-subtitle mb-2 text-muted">
-            {`Phone: (${this.props.patient.phone.slice(
-              0,
-              3
-            )})-${this.props.patient.phone.slice(3, 6)}-${this.props.patient.phone.slice(
-              6,
-              10
-            )}`}
+            {`Phone: (${this.props.patient.phone.slice(0,3)})-${this.props.patient.phone.slice(3,6)}-${this.props.patient.phone.slice(6,10)}`}
           </h6>
         </div>
       </div>
